@@ -338,6 +338,6 @@ public class Sport extends TestBase {
         $(".basket__qt-link_plus").click();
         //$$(".basket__qt-link.basket__qt-link_plus").get(1).click();
         $(".basket__qt-field").shouldHave(text("2"));*/
+        //
     }
-
 }
