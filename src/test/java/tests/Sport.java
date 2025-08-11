@@ -42,7 +42,7 @@ public class Sport extends TestBase {
     void choiceForMountaineering() {
         sportPage.openPage()
                 .setHeaderShopMenu("Альпинизм")
-                .setChoiceProductFromGroupgit("Кошкоботы")
+                .setChoiceProductFromGroup("Кошкоботы")
                 .checkProductFromGroup("Кошки Petzl D-Lynx Orange");
 
         /*$(".header__shop-menu").find(byText("Альпинизм")).hover();
