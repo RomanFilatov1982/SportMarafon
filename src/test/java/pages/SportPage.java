@@ -48,7 +48,7 @@ public class SportPage {
             authForm = $$("ul.auth-form__tabs li");
 
     public SportPage openPage() {
-        open("https://sport-marafon.ru/");
+        open("");
         return this;
     }
 
