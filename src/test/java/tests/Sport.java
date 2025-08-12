@@ -3,8 +3,10 @@ package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.TestDataValue;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -17,6 +19,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Tag("sportMarafon")
 public class Sport extends TestBase {
     SportPage sportPage = new SportPage();
 
@@ -24,8 +27,13 @@ public class Sport extends TestBase {
             "Сноуборд мужской, Сноуборд мужской Nidecker Beta",
             "Панама Buff, Панама Buff Booney Randall Brindle"
     })
+
     @ParameterizedTest(name = "Поиск товара {0} в строке поиска и проверка найденного товара {1}")
-    @Test
+    @Owner("filatovri")
+    @Story("")
+    @Feature("")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(value = "Testing", url = "https://sport-marafon.ru/")
     void searchProduct(String searchQuery, String productName) {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
