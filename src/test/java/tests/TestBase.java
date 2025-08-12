@@ -18,7 +18,7 @@ public class TestBase {
 
     @BeforeEach
     void setUp() {
-        open("https://sport-marafon.ru/");
+        Configuration.baseUrl = "https://sport-marafon.ru/";
         Configuration.browser = "Chrome";
         Configuration.browserVersion = "138.0";
         Configuration.browserSize = "1920x1080";
