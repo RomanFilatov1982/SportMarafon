@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "TelegramBot",
+    "environment": "qa.guru",
+    "comment": "comment here @Roman_0118",
+    "reportLink": "https://jenkins.autotests.cloud/job/HW-JenkinsParametrs/15/",
+    "language": "en",
+    "messenger": "telegram",
+    "allureFolder": "allure-report",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "8468626030:AAHkk_hNMsDfvuxCskrtqXZT73fjcuaRG-U",
+    "chat": "-4673109981",
+    "replyTo": ""
+  }
+}
