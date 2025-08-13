@@ -1,40 +1,41 @@
 plugins {
     id 'java-library'
-    id 'io.qameta.allure' version '2.11.2' //Плагин io.qameta.allure нужен для генерации отчётов о тестировании в формате Allure Report, совместимых с JUnit/TestNG/Selenide и т. д.
+    id 'io.qameta.allure' version '2.11.2'
 }
-
-repositories {
-    mavenCentral()
-}
-
-def allureVersion = "2.21.0",
-    selenideVersion = "6.19.1"
 
 allure {
-    report { //отвечает за появлении папочки build/allure-results
-        version.set(allureVersion)
+    report {
+        version.set("2.21.0")
     }
-    adapter {
-        aspectjWeaver.set(true)
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
         frameworks {
             junit5 { //название фреймворка
-                adapterVersion.set(allureVersion) //версия интеграции фреймворка и аллюр
+                adapterVersion.set("2.21.0") //версия интеграции фреймворка и Allure
             }
         }
     }
 }
 
+
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    testImplementation(
-            "com.codeborne:selenide:$selenideVersion",
-            "io.qameta.allure:allure-selenide:$allureVersion",
+    testImplementation (
+            "com.codeborne:selenide:6.19.1",
             "org.junit.jupiter:junit-jupiter:5.10.0",
-            'org.slf4j:slf4j-simple:2.0.7'
+            "org.slf4j:slf4j-simple:2.0.7",
+            "io.qameta.allure:allure-selenide:2.21.0",
+            'com.github.javafaker:javafaker:1.0.2'
     )
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 tasks.withType(Test) {
-    useJUnitPlatform()
     systemProperties(System.getProperties())
 
     testLogging {
@@ -44,7 +45,6 @@ tasks.withType(Test) {
         }
     }
 }
-
 
 task sport_marafon(type: Test) {
     useJUnitPlatform {
