@@ -212,6 +212,9 @@ public class Sport extends TestBase {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
         });
+        step("Принять куки", () -> {
+            sportPage.setCookie();
+        });
         step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Бег");
         });
