@@ -175,7 +175,7 @@ public class SportPage {
     }
 
     public SportPage setCatalogFavorite() {
-        catalogFavorite.get(2).click();
+        catalogFavorite.get(2).scrollIntoView(true).click();
         return this;
     }
 
