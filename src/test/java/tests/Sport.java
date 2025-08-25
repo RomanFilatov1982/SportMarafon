@@ -90,7 +90,7 @@ public class Sport extends TestBase {
             sportPage.setChoiceProductFromGroup("Гамаки");
         });
         step("Кликнуть на нужную карточку товара", () -> {
-            sportPage.setProductListItem("Гамак под снаряжение Naturehike Equipment Green");
+            sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
         });
         step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
             sportPage.setCartButton();
@@ -99,7 +99,7 @@ public class Sport extends TestBase {
             sportPage.setConfirmFooterCart();
         });
         step("Проверить, что товар отображается в корзине", () -> {
-            sportPage.checkBasketTable("Гамак под снаряжение Naturehike Equipment Green (Green, 1sz )");
+            sportPage.checkBasketTable("Гамак для снаряжения Naturehike Equipment Blue (Blue, 1sz )");
         });
        /* $(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Туризм")).hover();
@@ -126,7 +126,7 @@ public class Sport extends TestBase {
             sportPage.setChoiceProductFromGroup("Гамаки");
         });
         step("Кликнуть на нужную карточку товара", () -> {
-            sportPage.setProductListItem("Гамак под снаряжение Naturehike Equipment Green");
+            sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
         });
         step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
             sportPage.setCartButton();
@@ -178,16 +178,16 @@ public class Sport extends TestBase {
             sportPage.setFilterHeight("170 - 174");
         });
         step("Навести курсор мыши на карточку товара", () -> {
-            sportPage.setProductItemLink();
+            sportPage.setProductItem();
         });
         step("Кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setButtonAppear();
         });
-        step("В появившемся модальном окне кликнуть \"В корзину\"", () -> {
-            sportPage.setModalWindow();
-        });
         step("В попапп форме кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setPopupForm();
+        });
+         step("В появившемся модальном окне кликнуть \"В корзину\"", () -> {
+            sportPage.setModalWindow();
         });
         step("Проверить, что добавленный товар отображается в корзине", () -> {
             sportPage.checkBasketTable("Горные лыжи Salomon E S/Max 8 Xt с креплениями M10 GW L80 Oi (Multi, 163 )");
@@ -313,7 +313,7 @@ public class Sport extends TestBase {
             sportPage.setChoiceProductFromGroup("Гамаки");
         });
         step("Кликнуть на нужную карточку товара", () -> {
-            sportPage.setProductListItem("Гамак под снаряжение Naturehike Equipment Green");
+            sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
         });
         step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
             sportPage.setCartButton();

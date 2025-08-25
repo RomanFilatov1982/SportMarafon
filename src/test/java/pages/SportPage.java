@@ -27,9 +27,9 @@ public class SportPage {
             filterBinding = $("#filter-block-kreplenie"),
             filterProfessionalism = $("#filter-block-uroven_masterstva"),
             filterHeight = $("#filter-block-multi_rostovka_lizi"),
-            cartProduct = $(".product-list__item-link"),
+            cartProduct = $("a.product-list__item-link"),
             buttonAppear = $x("//button[text()='В корзину']"),
-            modalWindow = $("div.col-6"),
+            modalWindow = $("#modal-basket2141288"),
             popupForm = $(".popup-form__content_subscribe"),
             menSneakers = $("a[href*='muzhskie-begovye-krossovki']"),
             headerFavorite = $(".header__favorite"),
@@ -144,8 +144,8 @@ public class SportPage {
         return this;
     }
 
-    public SportPage setProductItemLink() {
-        cartProduct.hover();
+    public SportPage setProductItem() {
+        productList.hover();
         return this;
     }
 

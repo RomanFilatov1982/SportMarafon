@@ -50,5 +50,4 @@ task sport_marafon(type: Test) {
     useJUnitPlatform {
         includeTags("sportMarafon")
     }
-
 }
