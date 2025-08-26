@@ -67,8 +67,8 @@ ____
 ### **Параметры сборки в Jenkins:**
 
 - *browser (браузер, по умолчанию chrome)*
-- *browserVersion (версия браузера, по умолчанию 100.0)*
-- *browserSize (размер окна браузера, по умолчанию 1920x1080)*
+- *browserVersion (версия браузера, по умолчанию 127.0)*
+- *browserSize (размер окна браузера, по умолчанию 1280x720)*
 - *baseUrl (адрес тестируемого веб-сайта)*
 - *remoteUrl (логин, пароль и адрес удаленного сервера Selenoid)*
 
@@ -77,21 +77,21 @@ ____
 ___
 ***Локальный запуск:***
 ```bash  
-gradle clean X5Group_test
+gradle clean sport_marafon
 ```
 
 ***Удалённый запуск через Jenkins:***
 ```bash  
-clean X5Group_test
-"-Dbrowser=${browser}"
-"-DbrowserVersion=${browserVersion}"
-"-DbrowserSize=${browserSize}"
-"-DbaseUrl=${baseUrl}"
-"-DremoteUrl=${remoteUrl}"
+clean
+${TASK}
+-Dbrowser=${BROWSER}
+-DbrowserVersion=${BROWSER_VERSION} 
+-DbrowserSize=${BROWSER_SIZE} 
+-DremoteUrl=https://user1:1234@${REMOTE_URL}/wd/hub
 ```
 ___
 <a id="allure"></a>
-## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/Kod3ik_qa_guru_x5/allure/)</a>
+## <img alt="Allure" height="25" src="images/logo/Allure.svg" width="25"/></a> <a name="Allure"></a>Allure [отчет](https://jenkins.autotests.cloud/job/SportMarafon/42/allure/)</a>
 ___
 
 ### *Основная страница отчёта*

@@ -35,15 +35,9 @@ public class Sport extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Link(value = "Testing", url = "https://sport-marafon.ru/")
     void searchProduct(String searchQuery, String productName) {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Ввести поисковый запрос", () -> {
             sportPage.setSearchInput(searchQuery);
-        });
-        step("Проверить найденный товар в соответствии с запросом", () -> {
             sportPage.checkProductListNameCollection(productName);
-        });
        /* $(".header__search").click();
         $("#head-search-input").setValue("Панама Buff").pressEnter();
         $$(".product-list__name").findBy(Condition.text("Панама Buff Booney Randall Brindle"));*/
@@ -56,18 +50,10 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Выбор товара из группы")
     void choiceForMountaineering() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Навести курсор мышки на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Альпинизм");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setChoiceProductFromGroup("Кошкоботы");
-        });
-        step("Проверить, что товары отобразились из нужной категории", () -> {
             sportPage.checkProductFromGroup("Кошки Petzl D-Lynx Orange");
-        });
         /*$(".header__shop-menu").find(byText("Альпинизм")).hover();
         //$$("a.shop-menu__wrap li").find(byText("Альпинизм")).hover()
         $$("ul.shop-dd-menu__column li").findBy(text("Кошкоботы")).click();
@@ -77,30 +63,14 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Добавить товар в корзину из карточки")
     void addProductToBasketFromCard() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Принять куки", () -> {
             sportPage.setCookie();
-        });
-        step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Туризм");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setChoiceProductFromGroup("Гамаки");
-        });
-        step("Кликнуть на нужную карточку товара", () -> {
             sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
-        });
-        step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
             sportPage.setCartButton();
-        });
-        step("В появившейся диалоговой панели кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setConfirmFooterCart();
-        });
-        step("Проверить, что товар отображается в корзине", () -> {
             sportPage.checkBasketTable("Гамак для снаряжения Naturehike Equipment Blue (Blue, 1sz )");
-        });
        /* $(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Туризм")).hover();
         $$("ul.shop-dd-menu__column li").findBy(text("Гамаки")).click();
@@ -113,33 +83,15 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Удалить товар из корзины")
     void removeProductFromBasket() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Принять куки", () -> {
             sportPage.setCookie();
-        });
-        step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Туризм");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setChoiceProductFromGroup("Гамаки");
-        });
-        step("Кликнуть на нужную карточку товара", () -> {
             sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
-        });
-        step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
             sportPage.setCartButton();
-        });
-        step("В появившейся диалоговой панели кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setConfirmFooterCart();
-        });
-        step("Кликнуть на кнопку(X) удалить", () -> {
             sportPage.setDeleteProductFromBasket();
-        });
-        step("Проверить, что товар отсутствует в корзине и появилось сообщение", () -> {
             sportPage.checkEmptyBasket();
-        });
         /*$(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Туризм")).hover();
         $$("ul.shop-dd-menu__column li").findBy(text("Гамаки")).click();
@@ -153,45 +105,19 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Добавить товар в корзину используя фильтр")
     void addProductToBasketUseFilter() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Принять куки", () -> {
             sportPage.setCookie();
-        });
-        step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Горные лыжи");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setMenAlpineSkisUniversal();
-        });
-        step("В фильтре выбрать бренд товара", () -> {
             sportPage.setFilterBrandProduct("Salomon");
-        });
-        step("В фильтре выбрать наличие крепления", () -> {
             sportPage.setFilterBindingProduct("В комплекте");
-        });
-        step("В фильтре выбрать уровень мастерства", () -> {
             sportPage.setFilterProfessionalism("Средний/Продвинутый");
-        });
-        step("В фильтре выбрать ростовку(см)", () -> {
             sportPage.setFilterHeight("170 - 174");
-        });
-        step("Навести курсор мыши на карточку товара", () -> {
             sportPage.setProductItem();
-        });
-        step("Кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setButtonAppear();
-        });
-        step("В попапп форме кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setPopupForm();
-        });
-         step("В появившемся модальном окне кликнуть \"В корзину\"", () -> {
             sportPage.setModalWindow();
-        });
-        step("Проверить, что добавленный товар отображается в корзине", () -> {
             sportPage.checkBasketTable("Горные лыжи Salomon E S/Max 8 Xt с креплениями M10 GW L80 Oi (Multi, 163 )");
-        });
        /* $(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Горные лыжи")).hover();
         $("a[href*='universalnye-gornye-lyzhi/?sex%5B%5D=Uniseks&sex%5B%5D=Muzhskoy']").click();
@@ -209,30 +135,14 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Добавить товар в избранное")
     void addingProductToFavorites() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Принять куки", () -> {
             sportPage.setCookie();
-        });
-        step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Бег");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setMenSneakers();
-        });
-        step("Навести курсор мыши на третью карточку товара", () -> {
             sportPage.setProductListItemLinkThird();
-        });
-        step("Добавить товар в избранное", () -> {
             sportPage.setCatalogFavorite();
-        });
-        step("Кликнуть справа вверху на избранное", () -> {
             sportPage.setHeaderFavorite();
-        });
-        step("Проверить, что товар отображается в избранном", () -> {
             sportPage.checkProductListName("Кроссовки Reebok Floatzig X1 Синий/Зеленый/Голубой");
-        });
         /*$(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Бег")).hover();
         $("a[href*='muzhskie-begovye-krossovki']").click();
@@ -245,24 +155,12 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Поиск товара по бренду используя фильтр")
     void searchForProductByBrand() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Принять куки", () -> {
             sportPage.setCookie();
-        });
-        step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Бег");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setMenSneakers();
-        });
-        step("В фильтре выбрать бренд ", () -> {
             sportPage.setFilterBrandProduct("Adidas");
-        });
-        step("Проверить, что на странице отображаются товары в соответствии с фильтром", () -> {
             sportPage.checkBrandSneakers();
-        });
         /*$(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Бег")).hover();
         $("a[href*='muzhskie-begovye-krossovki']").click();
@@ -274,27 +172,13 @@ public class Sport extends TestBase {
     @DisplayName("Вход в личный кабинет незарегистрированного пользователя")
     void loginToYourPersonalAccount() {
         TestDataValue testDataValue = new TestDataValue();
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Справа вверху кликнуть на ссылку \"Вход\"", () -> {
             sportPage.setAuthLink();
-        });
-        step("В форме авторизации кликнуть на вкладку вход \"По e-mail\"", () -> {
             sportPage.setAuthForm();
-        });
-        step("Ввести e-mail", () -> {
             sportPage.setAuthEmail(testDataValue.userEmail);
-        });
-        step("Ввести пароль", () -> {
             sportPage.setAuthPass(testDataValue.userPassword);
-        });
-        step("Кликнуть на кнопку \"Войти\"", () -> {
             sportPage.setAuthFormModal();
-        });
-        step("Проверить сообщение об ошибке", () -> {
             sportPage.checkTextError();
-        });
         /*$(".js-user-link-container").$(byText("Вход")).click();
         $$("ul.auth-form__tabs li").findBy(text("По e-mail")).click();
         $("#authElse").sendKeys("roman@bk.ru");
@@ -306,34 +190,15 @@ public class Sport extends TestBase {
     @Test
     @DisplayName("Увеличить количество товара в корзине")
     void changeQuantityInBasket() {
-        step("Открыть главную страницу", () -> {
             sportPage.openPage();
-        });
-        step("Принять куки", () -> {
             sportPage.setCookie();
-        });
-        step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Туризм");
-        });
-        step("Выбрать из списка нужную категорию товара", () -> {
             sportPage.setChoiceProductFromGroup("Гамаки");
-        });
-        step("Кликнуть на нужную карточку товара", () -> {
             sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
-        });
-        step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
             sportPage.setCartButton();
-        });
-        step("В появившейся диалоговой панели кликнуть на кнопку \"В корзину\"", () -> {
             sportPage.setConfirmFooterCart();
-        });
-        step("Кликнуть на кнопку + (увеличить количество товара)", () -> {
             sportPage.setLinkPlus();
-        });
-        step("Проверить, что количество товара увеличилось", () -> {
             sportPage.checkAmount();
-        });
-
        /* $(".cookie").$(byText("Принять")).click();
         $(".header__shop-menu").find(byText("Туризм")).hover();
         $$("ul.shop-dd-menu__column li").findBy(text("Гамаки")).click();
