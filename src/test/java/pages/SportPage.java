@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.time.Duration;
 
@@ -178,7 +179,7 @@ public class SportPage {
         catalogFavorite.get(2).scrollIntoView(true).click();
         return this;
     }
-
+@Step("Кликнуть справа вверху на избранное")
     public SportPage setHeaderFavorite() {
         headerFavorite.click();
         return this;

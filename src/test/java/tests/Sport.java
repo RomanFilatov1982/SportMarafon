@@ -54,7 +54,7 @@ public class Sport extends TestBase {
     }
 
     @Test
-    @DisplayName("Выбор товара из группы товаров")
+    @DisplayName("Выбор товара из группы")
     void choiceForMountaineering() {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
@@ -75,7 +75,7 @@ public class Sport extends TestBase {
     }
 
     @Test
-    @DisplayName("Добавить продукт в корзину из карточки товара")
+    @DisplayName("Добавить товар в корзину из карточки")
     void addProductToBasketFromCard() {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
@@ -111,7 +111,7 @@ public class Sport extends TestBase {
     }
 
     @Test
-    @DisplayName("Удалить продукт из корзины")
+    @DisplayName("Удалить товар из корзины")
     void removeProductFromBasket() {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
@@ -151,7 +151,7 @@ public class Sport extends TestBase {
     }
 
     @Test
-    @DisplayName("Добавить продукт в корзину при помощи фильтра")
+    @DisplayName("Добавить товар в корзину используя фильтр")
     void addProductToBasketUseFilter() {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
@@ -207,7 +207,7 @@ public class Sport extends TestBase {
     }
 
     @Test
-    @DisplayName("Добавить продукт в избранное")
+    @DisplayName("Добавить товар в избранное")
     void addingProductToFavorites() {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
@@ -243,10 +243,13 @@ public class Sport extends TestBase {
     }
 
     @Test
-    @DisplayName("Поиск продукта по бренду используя фильтр")
+    @DisplayName("Поиск товара по бренду используя фильтр")
     void searchForProductByBrand() {
         step("Открыть главную страницу", () -> {
             sportPage.openPage();
+        });
+        step("Принять куки", () -> {
+            sportPage.setCookie();
         });
         step("Навести курсор мыши на группу товаров", () -> {
             sportPage.setHeaderShopMenu("Бег");
