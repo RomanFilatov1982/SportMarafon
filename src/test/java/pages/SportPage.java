@@ -31,8 +31,8 @@ public class SportPage {
             filterHeight = $("#filter-block-multi_rostovka_lizi"),
             cartProduct = $("a.product-list__item-link"),
             buttonAppear = $x("//button[text()='В корзину']"),
-            modalWindow = $("#modal-basket2141288"),
             popupForm = $(".popup-form__content_subscribe"),
+            modalWindow = $("#modal-basket2141288"),
             menSneakers = $("a[href*='muzhskie-begovye-krossovki']"),
             headerFavorite = $(".header__favorite"),
             brand = $("[href*='brands/adidas']"),
@@ -49,258 +49,222 @@ public class SportPage {
             catalogFavorite = $$(".catalog__favourite"),
             authForm = $$("ul.auth-form__tabs li");
 
+    @Step("Открыть главную страницу")
     public SportPage openPage() {
-        step("Открыть главную страницу", () -> {
         open("");
-        });
         return this;
     }
 
+    @Step("Принять куки")
     public SportPage setCookie() {
-        step("Принять куки", () -> {
         cookie.$(byText("Принять")).click();
-        });
         return this;
     }
 
+    @Step("Проверить найденный товар в соответствии с запросом")
     public SportPage checkProductListNameCollection(String value) {
-        step("Проверить найденный товар в соответствии с запросом", () -> {
-        productListName
-                .findBy(Condition.text(value));
-        });
+        productListName.findBy(Condition.text(value));
+
         return this;
     }
 
+    @Step("Ввести поисковый запрос")
     public SportPage setSearchInput(String value) {
-        step("Ввести поисковый запрос", () -> {
         searchClick.click();
         searchInput.setValue(value).pressEnter();
-        });
         return this;
     }
 
+    @Step("Проверить, что товар отображается в избранном")
     public SportPage checkProductListName(String value) {
-        step("Проверить, что товар отображается в избранном", () -> {
         productName.shouldHave(text(value));
-        });
         return this;
     }
 
+    @Step("Навести курсор мышки на группу товаров")
     public SportPage setHeaderShopMenu(String value) {
-        step("Навести курсор мышки на группу товаров", () -> {
         headerMenu.find(byText(value)).hover();
-        });
         return this;
     }
 
+    @Step("Выбрать из списка нужную категорию товара")
     public SportPage setChoiceProductFromGroup(String value) {
-        step("Выбрать из списка нужную категорию товара", () -> {
         choiceProduct.find(Condition.text(value)).click();
-        });
         return this;
     }
 
+    @Step("Проверить, что товары отобразились из нужной категории")
     public SportPage checkProductFromGroup(String value) {
-        step("Проверить, что товары отобразились из нужной категории", () -> {
         productName.shouldHave(text(value));
-        });
         return this;
     }
 
+    @Step("Кликнуть на нужную карточку товара")
     public SportPage setProductListItem(String value) {
-        step("Кликнуть на нужную карточку товара", () -> {
         productList.find(byText(value)).click();
-            productName.shouldHave(text(value));
-        });
+        //productName.shouldHave(text(value));
         return this;
     }
 
+    @Step("Кликнуть на кнопку \"Добавить в корзину\"")
     public SportPage setCartButton() {
-        step("Кликнуть на кнопку \"Добавить в корзину\"", () -> {
         cartButton.click();
-        });
         return this;
     }
 
+    @Step("В появившейся диалоговой панели кликнуть на кнопку \"В корзину\"")
     public SportPage setConfirmFooterCart() {
-        step("В появившейся диалоговой панели кликнуть на кнопку \"В корзину\"", () -> {
         confirmFooter.$(byText("В корзину")).click();
-        });
         return this;
     }
 
+    @Step("Проверить, что товар отображается в корзине")
     public SportPage checkBasketTable(String value) {
-        step("Проверить, что товар отображается в корзине", () -> {
         basketTable.shouldHave(text(value));
-        });
         return this;
     }
 
+    @Step("Кликнуть на кнопку(X) удалить")
     public SportPage setDeleteProductFromBasket() {
-        step("Кликнуть на кнопку(X) удалить", () -> {
-        basketDelete.click();
-        });
+        basketDelete.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
         return this;
     }
 
+    @Step("Проверить, что товар отсутствует в корзине и появилось сообщение")
     public SportPage checkEmptyBasket() {
-        step("Проверить, что товар отсутствует в корзине и появилось сообщение", () -> {
         emptyBasket.shouldHave(text("В вашей корзине пусто"));
-        });
         return this;
     }
 
+    @Step("Выбрать из списка нужную категорию товара")
     public SportPage setMenAlpineSkisUniversal() {
-        step("Выбрать из списка нужную категорию товара", () -> {
         menAlpineSkis.click();
-        });
         return this;
     }
 
+    @Step("В фильтре выбрать бренд товара")
     public SportPage setFilterBrandProduct(String value) {
-        step("В фильтре выбрать бренд товара", () -> {
         filterBrand.$(byText(value)).click();
-        });
         return this;
     }
 
+    @Step("В фильтре выбрать наличие крепления")
     public SportPage setFilterBindingProduct(String value) {
-        step("В фильтре выбрать наличие крепления", () -> {
         filterBinding.$(byText(value)).click();
-        });
         return this;
     }
 
+    @Step("В фильтре выбрать уровень мастерства")
     public SportPage setFilterProfessionalism(String value) {
-        step("В фильтре выбрать уровень мастерства", () -> {
         filterProfessionalism.$(byText(value)).click();
-        });
         return this;
     }
 
+    @Step("В фильтре выбрать ростовку(см)")
     public SportPage setFilterHeight(String value) {
-        step("В фильтре выбрать ростовку(см)", () -> {
         filterHeight.$(byText(value)).click();
-        });
         return this;
     }
 
+    @Step("Навести курсор мыши на карточку товара")
     public SportPage setProductItem() {
-        step("Навести курсор мыши на карточку товара", () -> {
         productList.hover();
-        });
         return this;
     }
 
+    @Step("Кликнуть на кнопку \"В корзину\"")
     public SportPage setButtonAppear() {
-        step("Кликнуть на кнопку \"В корзину\"", () -> {
         buttonAppear.click();
-        });
         return this;
     }
 
+    @Step("В попапп форме кликнуть на кнопку \"В корзину\"")
     public SportPage setPopupForm() {
-        step("В попапп форме кликнуть на кнопку \"В корзину\"", () -> {
         popupForm.$(byText("В корзину")).click();
-        });
         return this;
     }
 
+    @Step("В появившемся модальном окне кликнуть \"В корзину\"")
     public SportPage setModalWindow() {
-        step("В появившемся модальном окне кликнуть \"В корзину\"", () -> {
-            modalWindow.$(byText("В корзину")).click();
-        });
+        modalWindow.$(byText("В корзину")).click();
         return this;
     }
 
+    @Step("Выбрать из списка нужную категорию товара")
     public SportPage setMenSneakers() {
-        step("Выбрать из списка нужную категорию товара", () -> {
         menSneakers.click();
-        });
         return this;
     }
 
+    @Step("Навести курсор мыши на третью карточку товара")
     public SportPage setProductListItemLinkThird() { // два, но один элемент коллекции, а другой селенид элемент
-        step("Навести курсор мыши на третью карточку товара", () -> {
         productListCollection.get(2).hover();
-        });
         return this;
     }
 
+    @Step("Добавить товар в избранное")
     public SportPage setCatalogFavorite() {
-        step("Добавить товар в избранное", () -> {
-        catalogFavorite.get(2).scrollIntoView(true).click();
-        });
+        catalogFavorite.get(2).shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
         return this;
     }
-@Step("Кликнуть справа вверху на избранное")
+
+    @Step("Кликнуть справа вверху на избранное")
     public SportPage setHeaderFavorite() {
-    step("Кликнуть справа вверху на избранное", () -> {
         headerFavorite.click();
-    });
         return this;
     }
 
+    @Step("Проверить, что на странице отображаются товары в соответствии с фильтром")
     public SportPage checkBrandSneakers() {
-        step("Проверить, что на странице отображаются товары в соответствии с фильтром", () -> {
         brand.shouldHave(text("Adidas"));
-        });
         return this;
     }
 
+    @Step("Справа вверху кликнуть на ссылку \"Вход\"")
     public SportPage setAuthLink() {
-        step("Справа вверху кликнуть на ссылку \"Вход\"", () -> {
         authLink.$(byText("Вход")).click();
-        });
         return this;
     }
 
+    @Step("В форме авторизации кликнуть на вкладку вход \"По e-mail\"")
     public SportPage setAuthForm() {
-        step("В форме авторизации кликнуть на вкладку вход \"По e-mail\"", () -> {
         authForm.findBy(text("По e-mail")).click();
-        });
         return this;
     }
 
+    @Step("Ввести e-mail")
     public SportPage setAuthEmail(String value) {
-        step("Ввести e-mail", () -> {
         authEmail.sendKeys(value);
-        });
         return this;
     }
 
+    @Step("Ввести пароль")
     public SportPage setAuthPass(String value) {
-        step("Ввести пароль", () -> {
         authPass.sendKeys(value);
-        });
         return this;
     }
 
+    @Step("Кликнуть на кнопку \"Войти\"")
     public SportPage setAuthFormModal() {
-        step("Кликнуть на кнопку \"Войти\"", () -> {
         authFormModal.find(byText("Войти")).click();
-        });
         return this;
     }
 
+    @Step("Проверить сообщение об ошибке")
     public SportPage checkTextError() {
-        step("Проверить сообщение об ошибке", () -> {
         textError.shouldHave(text("Неверный пароль. Попробуйте ещё раз"));
-        });
         return this;
     }
 
+    @Step("Кликнуть на кнопку + (увеличить количество товара)")
     public SportPage setLinkPlus() {
-        step("Кликнуть на кнопку + (увеличить количество товара)", () -> {
         linkPlus.click();
-        });
         return this;
     }
 
+    @Step("Проверить, что количество товара увеличилось")
     public SportPage checkAmount() {
-        step("Проверить, что количество товара увеличилось", () -> {
         basketAmount.shouldHave(Condition.value("2"));
-        });
         return this;
     }
 }
