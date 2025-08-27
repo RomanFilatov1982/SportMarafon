@@ -124,11 +124,6 @@ ____
 <img title="Allure TestOps Dashboard" src="images/screen/allure_overview.png" width="850">  
 </p>  
 
-//### *Ручные тест-кейсы*
-
-//<p align="center">  
-//<img title="Allure Tests" src="images/screen/manual_tests.png" width="850">  
-//</p>
 
 ### *Авто тест-кейсы*
 
@@ -157,5 +152,5 @@ ____
 ## <img alt="Selenoid" height="25" src="images/logo/Selenoid.svg" width="25"/></a> Примеры видео выполнения тестов на Selenoid
 ____
 <p align="center">
-<img title="Selenoid Video" src="images/video/sport_marafon.mp4" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/video/sport_marafon.gif" width="550" height="350"  alt="video">   
 </p>
