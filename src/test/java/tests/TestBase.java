@@ -16,17 +16,17 @@ public class TestBase {
 
     @BeforeEach
     void setUp() {
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://sport-marafon.ru/");
+       /* Configuration.baseUrl = System.getProperty("baseUrl", "https://sport-marafon.ru/");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = System.getProperty("remoteUrl");
+        Configuration.remote = System.getProperty("remoteUrl");*/
 
-       /* Configuration.pageLoadTimeout = 60000;
+        Configuration.pageLoadTimeout = 60000;
         Configuration.baseUrl = "https://sport-marafon.ru/";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;*/
+        Configuration.holdBrowserOpen = true;
 //
         //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 

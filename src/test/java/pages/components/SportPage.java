@@ -23,7 +23,7 @@ public class SportPage {
             basketTable = $(".basket__table"),
             basketDelete = $(".basket__delete"),
             emptyBasket = $("#basket-app"),
-            menAlpineSkis = $("a[href*='universalnye-gornye-lyzhi/?sex%5B%5D=Uniseks&sex%5B%5D=Muzhskoy']"),
+            menAlpineSkis = $("a[data-id='7614']"),
             filterBrand = $("#filter-block-brand-name"),
             filterBinding = $("#filter-block-kreplenie"),
             filterProfessionalism = $("#filter-block-uroven_masterstva"),
