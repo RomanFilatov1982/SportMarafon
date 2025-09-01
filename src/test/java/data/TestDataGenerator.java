@@ -7,11 +7,11 @@ import java.util.Locale;
 public class TestDataGenerator {
     public static Faker faker = new Faker(new Locale("en-GB"));
 
-    public static String getUserEmail() {
+    public static String generateUserEmail() {
         return faker.internet().emailAddress();
     }
 
-    public static String getPassword() {
+    public static String generatePassword() {
         return faker.internet().password();
     }
 }

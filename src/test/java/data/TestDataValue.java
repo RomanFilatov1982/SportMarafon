@@ -1,8 +1,8 @@
 package data;
 
 public class TestDataValue {
-    public static String userEmail = TestDataGenerator.getUserEmail();
-    public static String userPassword = TestDataGenerator.getPassword();
+    public String userEmail = TestDataGenerator.generateUserEmail();
+    public String userPassword = TestDataGenerator.generatePassword();
 
 }
 

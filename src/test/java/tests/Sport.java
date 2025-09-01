@@ -1,23 +1,13 @@
 package tests;
 
-
-import com.codeborne.selenide.logevents.SelenideLogger;
 import data.TestDataValue;
 import io.qameta.allure.*;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import pages.SportPage;
-
-import java.util.Collection;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
+import pages.components.SportPage;
 
 @Tag("sportMarafon")
 public class Sport extends TestBase {
