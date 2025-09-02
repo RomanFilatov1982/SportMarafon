@@ -25,113 +25,113 @@ public class Sport extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Link(value = "Testing", url = "https://sport-marafon.ru/")
     void searchProduct(String searchQuery, String productName) {
-        sportPage.openPage();
-        sportPage.setSearchInput(searchQuery);
-        sportPage.checkProductListNameCollection(productName);
+        sportPage.openPage()
+        .setSearchInput(searchQuery)
+        .checkProductListNameCollection(productName);
     }
 
     @Test
     @DisplayName("Выбор товара из группы")
     void choiceForMountaineering() {
-        sportPage.openPage();
-        sportPage.setHeaderShopMenu("Альпинизм");
-        sportPage.setChoiceProductFromGroup("Кошкоботы");
-        sportPage.checkProductFromGroup("Кошки Petzl D-Lynx Orange");
+        sportPage.openPage()
+        .setHeaderShopMenu("Альпинизм")
+        .setChoiceProductFromGroup("Кошкоботы")
+        .checkProductFromGroup("Кошки Petzl D-Lynx Orange");
     }
 
     @Test
     @DisplayName("Добавить товар в корзину из карточки")
     void addProductToBasketFromCard() {
-        sportPage.openPage();
-        sportPage.setCookie();
-        sportPage.setHeaderShopMenu("Туризм");
-        sportPage.setChoiceProductFromGroup("Гамаки");
-        sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
-        sportPage.setCartButton();
-        sportPage.setConfirmFooterCart();
-        sportPage.checkBasketTable("Гамак для снаряжения Naturehike Equipment Blue (Blue, 1sz )");
+        sportPage.openPage()
+        .setCookie()
+        .setHeaderShopMenu("Туризм")
+        .setChoiceProductFromGroup("Гамаки")
+        .setProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
+        .setCartButton()
+        .setConfirmFooterCart()
+        .checkBasketTable("Гамак для снаряжения Naturehike Equipment Blue (Blue, 1sz )");
     }
 
     @Test
     @DisplayName("Удалить товар из корзины")
     void removeProductFromBasket() {
-        sportPage.openPage();
-        sportPage.setCookie();
-        sportPage.setHeaderShopMenu("Туризм");
-        sportPage.setChoiceProductFromGroup("Гамаки");
-        sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
-        sportPage.setCartButton();
-        sportPage.setConfirmFooterCart();
-        sportPage.setDeleteProductFromBasket();
-        sportPage.checkEmptyBasket();
+        sportPage.openPage()
+        .setCookie()
+        .setHeaderShopMenu("Туризм")
+        .setChoiceProductFromGroup("Гамаки")
+        .setProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
+        .setCartButton()
+        .setConfirmFooterCart()
+        .setDeleteProductFromBasket()
+        .checkEmptyBasket();
     }
 
     @Test
     @DisplayName("Добавить товар в корзину используя фильтр")
     void addProductToBasketUseFilter() {
-        sportPage.openPage();
-        sportPage.setCookie();
-        sportPage.setHeaderShopMenu("Горные лыжи");
-        sportPage.setMenAlpineSkisUniversal();
-        sportPage.setFilterBrandProduct("Salomon");
-        sportPage.setFilterBindingProduct("В комплекте");
-        sportPage.setFilterProfessionalism("Средний/Продвинутый");
-        sportPage.setFilterHeight("170 - 174");
-        sportPage.setProductItem();
-        sportPage.setButtonAppear();
-        sportPage.setPopupForm();
-        sportPage.setModalWindow();
-        sportPage.checkBasketTable("Горные лыжи Salomon E S/Max 8 Xt с креплениями M10 GW L80 Oi (Multi, 163 )");
+        sportPage.openPage()
+        .setCookie()
+        .setHeaderShopMenu("Горные лыжи")
+        .setMenAlpineSkisUniversal()
+        .setFilterBrandProduct("Salomon")
+        .setFilterBindingProduct("В комплекте")
+        .setFilterProfessionalism("Средний/Продвинутый")
+        .setFilterHeight("170 - 174")
+        .setProductItem()
+        .setButtonAppear()
+        .setPopupForm()
+        .setModalWindow()
+        .checkBasketTable("Горные лыжи Salomon E S/Max 8 Xt с креплениями M10 GW L80 Oi (Multi, 163 )");
     }
 
     @Test
     @DisplayName("Добавить товар в избранное")
     void addingProductToFavorites() {
-        sportPage.openPage();
-        sportPage.setCookie();
-        sportPage.setHeaderShopMenu("Бег");
-        sportPage.setMenSneakers();
-        sportPage.setProductListItemLinkThird();
-        sportPage.setCatalogFavorite();
-        sportPage.setHeaderFavorite();
-        sportPage.checkProductListName("Кроссовки Reebok Floatzig X1 Синий/Зеленый/Голубой");
+        sportPage.openPage()
+        .setCookie()
+        .setHeaderShopMenu("Бег")
+        .setMenSneakers()
+        .setProductListItemLinkThird()
+        .setCatalogFavorite()
+        .setHeaderFavorite()
+        .checkProductListName("Кроссовки Reebok Floatzig X1 Синий/Зеленый/Голубой");
     }
 
     @Test
     @DisplayName("Поиск товара по бренду используя фильтр")
     void searchForProductByBrand() {
-        sportPage.openPage();
-        sportPage.setCookie();
-        sportPage.setHeaderShopMenu("Бег");
-        sportPage.setMenSneakers();
-        sportPage.setFilterBrandProduct("Adidas");
-        sportPage.checkBrandSneakers();
+        sportPage.openPage()
+        .setCookie()
+        .setHeaderShopMenu("Бег")
+        .setMenSneakers()
+        .setFilterBrandProduct("Adidas")
+        .checkBrandSneakers();
     }
 
     @Test
     @DisplayName("Вход в личный кабинет незарегистрированного пользователя")
     void loginToYourPersonalAccount() {
         TestDataValue testDataValue = new TestDataValue();
-        sportPage.openPage();
-        sportPage.setAuthLink();
-        sportPage.setAuthForm();
-        sportPage.setAuthEmail(testDataValue.userEmail);
-        sportPage.setAuthPass(testDataValue.userPassword);
-        sportPage.setAuthFormModal();
-        sportPage.checkTextError();
+        sportPage.openPage()
+        .setAuthLink()
+        .setAuthForm()
+        .setAuthEmail(testDataValue.userEmail)
+        .setAuthPass(testDataValue.userPassword)
+        .setAuthFormModal()
+        .checkTextError();
     }
 
     @Test
     @DisplayName("Увеличить количество товара в корзине")
     void changeQuantityInBasket() {
-        sportPage.openPage();
-        sportPage.setCookie();
-        sportPage.setHeaderShopMenu("Туризм");
-        sportPage.setChoiceProductFromGroup("Гамаки");
-        sportPage.setProductListItem("Гамак для снаряжения Naturehike Equipment Blue");
-        sportPage.setCartButton();
-        sportPage.setConfirmFooterCart();
-        sportPage.setLinkPlus();
-        sportPage.checkAmount();
+        sportPage.openPage()
+        .setCookie()
+        .setHeaderShopMenu("Туризм")
+        .setChoiceProductFromGroup("Гамаки")
+        .setProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
+        .setCartButton()
+        .setConfirmFooterCart()
+        .setLinkPlus()
+        .checkAmount();
     }
 }
