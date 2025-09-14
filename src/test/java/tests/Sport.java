@@ -34,7 +34,7 @@ public class Sport extends TestBase {
     @DisplayName("Выбор товара из группы")
     void choiceForMountaineering() {
         sportPage.openPage()
-        .setHeaderShopMenu("Альпинизм")
+        .chooseCategoryMenuItem("Альпинизм")
         .setChoiceProductFromGroup("Кошкоботы")
         .checkProductFromGroup("Кошки Petzl D-Lynx Orange");
     }
@@ -44,7 +44,7 @@ public class Sport extends TestBase {
     void addProductToBasketFromCard() {
         sportPage.openPage()
         .setCookie()
-        .setHeaderShopMenu("Туризм")
+        .chooseCategoryMenuItem("Туризм")
         .setChoiceProductFromGroup("Гамаки")
         .setProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
         .setCartButton()
@@ -57,7 +57,7 @@ public class Sport extends TestBase {
     void removeProductFromBasket() {
         sportPage.openPage()
         .setCookie()
-        .setHeaderShopMenu("Туризм")
+        .chooseCategoryMenuItem("Туризм")
         .setChoiceProductFromGroup("Гамаки")
         .setProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
         .setCartButton()
@@ -71,7 +71,7 @@ public class Sport extends TestBase {
     void addProductToBasketUseFilter() {
         sportPage.openPage()
         .setCookie()
-        .setHeaderShopMenu("Горные лыжи")
+        .chooseCategoryMenuItem("Горные лыжи")
         .setMenAlpineSkisUniversal()
         .setFilterBrandProduct("Salomon")
         .setFilterBindingProduct("В комплекте")
@@ -89,7 +89,7 @@ public class Sport extends TestBase {
     void addingProductToFavorites() {
         sportPage.openPage()
         .setCookie()
-        .setHeaderShopMenu("Бег")
+        .chooseCategoryMenuItem("Бег")
         .setMenSneakers()
         .setProductListItemLinkThird()
         .setCatalogFavorite()
@@ -102,7 +102,7 @@ public class Sport extends TestBase {
     void searchForProductByBrand() {
         sportPage.openPage()
         .setCookie()
-        .setHeaderShopMenu("Бег")
+        .chooseCategoryMenuItem("Бег")
         .setMenSneakers()
         .setFilterBrandProduct("Adidas")
         .checkBrandSneakers();
@@ -126,7 +126,7 @@ public class Sport extends TestBase {
     void changeQuantityInBasket() {
         sportPage.openPage()
         .setCookie()
-        .setHeaderShopMenu("Туризм")
+        .chooseCategoryMenuItem("Туризм")
         .setChoiceProductFromGroup("Гамаки")
         .setProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
         .setCartButton()

@@ -3,6 +3,7 @@ package pages.components;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import components.Header;
 import io.qameta.allure.Step;
 
 import java.time.Duration;
@@ -12,18 +13,19 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SportPage {
+    Header header = new Header();
     private final SelenideElement cookie = $(".cookie"),
             searchClick = $(".header__search"),
             searchInput = $("#head-search-input"),
             productName = $(".product-list__name"),
-            headerMenu = $(".header__shop-menu"),
-            productList = $(".product-list__item-wrap"),
+
+    productList = $(".product-list__item-wrap"),
             cartButton = $("button.q-add-to-cart__button"),
             confirmFooter = $(".q-add-to-cart__confirm-footer"),
             basketTable = $(".basket__table"),
             basketDelete = $(".basket__delete"),
             emptyBasket = $("#basket-app"),
-            menAlpineSkis = $("a[data-id='7614']"),
+
             filterBrand = $("#filter-block-brand-name"),
             filterBinding = $("#filter-block-kreplenie"),
             filterProfessionalism = $("#filter-block-uroven_masterstva"),
@@ -43,7 +45,7 @@ public class SportPage {
             linkPlus = $(".basket__qt-link_plus"),
             basketAmount = $(".basket__qt-field");
     private final ElementsCollection productListName = $$(".product-list__name"),
-            choiceProduct = $$("ul.shop-dd-menu__column li"),
+
             productListCollection = $$(".product-list__item-link"),
             catalogFavorite = $$(".catalog__favourite"),
             authForm = $$("ul.auth-form__tabs li");
@@ -81,14 +83,14 @@ public class SportPage {
     }
 
     @Step("Навести курсор мышки на группу товаров")
-    public SportPage setHeaderShopMenu(String value) {
-        headerMenu.find(byText(value)).hover();
+    public SportPage chooseCategoryMenuItem(String value) {
+        header.chooseMenuItem(value);
         return this;
     }
 
     @Step("Выбрать из списка нужную категорию товара")
     public SportPage setChoiceProductFromGroup(String value) {
-        choiceProduct.find(Condition.text(value)).click();
+        header.selectProduct(value);
         return this;
     }
 
@@ -137,7 +139,7 @@ public class SportPage {
 
     @Step("Выбрать из списка нужную категорию товара")
     public SportPage setMenAlpineSkisUniversal() {
-        menAlpineSkis.click();
+        header.selectMenAlpineSkisUniversal();
         return this;
     }
 
