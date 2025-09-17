@@ -7,7 +7,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LayoutPage {
+public class LayoutPage<T> {
     SelenideElement headerFavorite = $(".header__favorite");
     Header header = new Header();
 

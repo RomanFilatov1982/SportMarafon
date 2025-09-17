@@ -9,7 +9,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
-public class BasketPage extends LayoutPage {
+public class BasketPage extends LayoutPage<BasketPage> {
 
     SelenideElement basketTable = $(".basket__table"),
     basketDelete = $(".basket__delete"),

@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ProductListPage extends LayoutPage {
+public class ProductListPage extends LayoutPage<ProductListPage> {
     SelenideElement productName = $(".product-list__name"),
     productList = $(".product-list__item-wrap"),
     filterBrand = $("#filter-block-brand-name"),

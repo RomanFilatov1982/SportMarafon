@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class MainPage extends LayoutPage{
+public class MainPage extends LayoutPage<MainPage>{
 
     private final SelenideElement cookie = $(".cookie"),
             searchClick = $(".header__search"),

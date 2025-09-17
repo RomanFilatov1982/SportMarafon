@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class ProductDetailPage extends LayoutPage{
+public class ProductDetailPage extends LayoutPage<ProductDetailPage>{
     SelenideElement cartButton = $("button.q-add-to-cart__button"),
     confirmFooter = $(".q-add-to-cart__confirm-footer");
 
