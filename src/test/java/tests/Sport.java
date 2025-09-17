@@ -93,7 +93,7 @@ public class Sport extends TestBase {
                 .setProductItem()
                 .setButtonAppear()
                 .setPopupForm()
-                .setModalWindow()
+                .confirmBasketModal()
                 .checkBasketTable("Горные лыжи Salomon E S/Max 8 Xt с креплениями M10 GW L80 Oi (Multi, 163 )");
     }
 
@@ -118,7 +118,7 @@ public class Sport extends TestBase {
                 .chooseCategoryMenuItem("Бег")
                 .chooseSubMenu("Для мужчин", "Беговые кроссовки")
                 .setFilterBrandProduct("Adidas")
-                .checkBrandSneakers();
+                .checkBrandSneakers("Adidas");
     }
 
     @Test

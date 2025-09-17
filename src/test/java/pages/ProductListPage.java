@@ -13,15 +13,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProductListPage extends LayoutPage<ProductListPage> {
     SelenideElement productName = $(".product-list__name"),
-    productList = $(".product-list__item-wrap"),
-    filterBrand = $("#filter-block-brand-name"),
-    filterBinding = $("#filter-block-kreplenie"),
-    filterProfessionalism = $("#filter-block-uroven_masterstva"),
-    filterHeight = $("#filter-block-multi_rostovka_lizi"),
+            productList = $(".product-list__item-wrap"),
+            filterBrand = $("#filter-block-brand-name"),
+            filterBinding = $("#filter-block-kreplenie"),
+            filterProfessionalism = $("#filter-block-uroven_masterstva"),
+            filterHeight = $("#filter-block-multi_rostovka_lizi"),
             buttonAppear = $x("//button[text()='В корзину']"),
             popupForm = $(".popup-form__content_subscribe"),
-            modalWindow = $("#modal-basket2141288"),
-    brand = $("[href*='brands/adidas']");
+            modalWindow = $(".popup-form.modal.show"),
+            adidasBrand = $("[href*='brands/adidas']");
 
     private final ElementsCollection productListCollection = $$(".product-list__item-link"),
             catalogFavorite = $$(".catalog__favourite");
@@ -81,7 +81,7 @@ public class ProductListPage extends LayoutPage<ProductListPage> {
     }
 
     @Step("В появившемся модальном окне кликнуть \"В корзину\"")
-    public BasketPage setModalWindow() {
+    public BasketPage confirmBasketModal() {
         modalWindow.$(byText("В корзину")).click();
         return new BasketPage();
     }
@@ -93,8 +93,8 @@ public class ProductListPage extends LayoutPage<ProductListPage> {
     }
 
     @Step("Проверить, что на странице отображаются товары в соответствии с фильтром")
-    public ProductListPage checkBrandSneakers() {
-        brand.shouldHave(text("Adidas"));
+    public ProductListPage checkBrandSneakers(String brand) {
+        adidasBrand.shouldHave(text(brand));
         return this;
     }
 
