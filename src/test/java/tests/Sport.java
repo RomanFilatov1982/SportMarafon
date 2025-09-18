@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import pages.MainPage;
 
-@Tag("sportMarafon")
+@Tag("sport_marafon")
 public class Sport extends TestBase {
     MainPage sportPage = new MainPage();
 
@@ -128,8 +128,8 @@ public class Sport extends TestBase {
         sportPage.openPage()
                 .clickAuthLink()
                 .сlickОnTheLoginByEmailTab()
-                .setAuthEmail(testDataValue.userEmail)
-                .setAuthPass(testDataValue.userPassword)
+                .enterEmail(testDataValue.userEmail)
+                .enterPassword(testDataValue.userPassword)
                 .setAuthFormModal()
                 .checkTextError();
     }

@@ -72,13 +72,13 @@ public class LayoutPage<T> {
     }
 
     @Step("Ввести e-mail")
-    public T setAuthEmail(String value) {
+    public T enterEmail(String value) {
         AUTH_EMAIL.sendKeys(value);
         return (T) this;
     }
 
     @Step("Ввести пароль")
-    public T setAuthPass(String value) {
+    public T enterPassword(String value) {
         AUTH_PASS.sendKeys(value);
         return (T) this;
     }

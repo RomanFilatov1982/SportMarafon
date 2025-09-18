@@ -50,6 +50,6 @@ tasks.withType(Test) {
 
 task sport_marafon(type: Test) {
     useJUnitPlatform {
-        includeTags("sportMarafon")
+        includeTags("sport_marafon")
     }
 }
