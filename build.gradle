@@ -23,6 +23,7 @@ repositories {
 }
 
 dependencies {
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
     testImplementation (
             "com.codeborne:selenide:6.19.1",
             "org.junit.jupiter:junit-jupiter:5.10.0",
@@ -36,6 +37,7 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+    useJUnitPlatform()
     systemProperties(System.getProperties())
 
     testLogging {
