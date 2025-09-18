@@ -11,38 +11,39 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BasketPage extends LayoutPage<BasketPage> {
 
-    SelenideElement basketTable = $(".basket__table"),
-    basketDelete = $(".basket__delete"),
-            emptyBasket = $("#basket-app"),
-            linkPlus = $(".basket__qt-link_plus"),
-            basketAmount = $(".basket__qt-field");
+    private final SelenideElement BASKET_TABLE = $(".basket__table"),
+            BASKET_DELETE = $(".basket__delete"),
+            EMPTY_BASKET = $("#basket-app"),
+            LINK_PLUS = $(".basket__qt-link_plus"),
+            BASKET_AMOUNT = $(".basket__qt-field");
+
     @Step("Проверить, что товар отображается в корзине")
     public BasketPage checkBasketTable(String value) {
-        basketTable.shouldHave(text(value));
+        BASKET_TABLE.shouldHave(text(value));
         return this;
     }
 
     @Step("Кликнуть на кнопку(X) удалить")
-    public BasketPage setDeleteProductFromBasket() {
-        basketDelete.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+    public BasketPage deleteProductFromBasket() {
+        BASKET_DELETE.shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
         return this;
     }
 
     @Step("Проверить, что товар отсутствует в корзине и появилось сообщение")
     public BasketPage checkEmptyBasket() {
-        emptyBasket.shouldHave(text("В вашей корзине пусто"));
+        EMPTY_BASKET.shouldHave(text("В вашей корзине пусто"));
         return this;
     }
 
     @Step("Кликнуть на кнопку + (увеличить количество товара)")
-    public BasketPage setLinkPlus() {
-        linkPlus.click();
+    public BasketPage addAmountPlus() {
+        LINK_PLUS.click();
         return this;
     }
 
     @Step("Проверить, что количество товара увеличилось")
     public BasketPage checkAmount() {
-        basketAmount.shouldHave(Condition.value("2"));
+        BASKET_AMOUNT.shouldHave(Condition.value("2"));
         return this;
     }
 }

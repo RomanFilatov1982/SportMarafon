@@ -12,104 +12,102 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductListPage extends LayoutPage<ProductListPage> {
-    SelenideElement productName = $(".product-list__name"),
-            productList = $(".product-list__item-wrap"),
-            filterBrand = $("#filter-block-brand-name"),
-            filterBinding = $("#filter-block-kreplenie"),
-            filterProfessionalism = $("#filter-block-uroven_masterstva"),
-            filterHeight = $("#filter-block-multi_rostovka_lizi"),
-            buttonAppear = $x("//button[text()='В корзину']"),
-            popupForm = $(".popup-form__content_subscribe"),
-            modalWindow = $(".popup-form.modal.show"),
-            adidasBrand = $("[href*='brands/adidas']");
+    private final SelenideElement PRODUCT_NAME = $(".product-list__name"),
+            PRODUCT_LIST = $(".product-list__item-wrap"),
+            FILTER_BRAND = $("#filter-block-brand-name"),
+            FILTER_BINDING = $("#filter-block-kreplenie"),
+            FILTER_PROFESSIONALISM = $("#filter-block-uroven_masterstva"),
+            FILTER_HEIGHT = $("#filter-block-multi_rostovka_lizi"),
+            BUTTON_APPEAR = $x("//button[text()='В корзину']"),
+            POPUP_FORM = $(".popup-form__content_subscribe"),
+            MODAL_WINDOW = $(".popup-form.modal.show");
+            //adidasBrand = $("[href*='brands/adidas']");
 
-    private final ElementsCollection productListCollection = $$(".product-list__item-link"),
-            catalogFavorite = $$(".catalog__favourite");
+    private final ElementsCollection PRODUCT_LIST_COLLECTION = $$(".product-list__item-link"),
+            CATALOG_FAVORITE = $$(".catalog__favourite");
 
     @Step("Проверить, что товары отобразились из нужной категории")
     public ProductListPage checkProductFromGroup(String value) {
-        productName.shouldHave(text(value));
+        PRODUCT_NAME.shouldHave(text(value));
         return this;
     }
 
     @Step("Проверить, что товар отображается в избранном")
     public ProductListPage checkProductListName(String value) {
-        productName.shouldHave(text(value));
+        PRODUCT_NAME.shouldHave(text(value));
         return this;
     }
 
     @Step("В фильтре выбрать бренд товара")
-    public ProductListPage setFilterBrandProduct(String value) {
-        filterBrand.$(byText(value)).click();
+    public ProductListPage selectInFilterBrandAProduct(String value) {
+        FILTER_BRAND.$(byText(value)).click();
         return this;
     }
 
     @Step("В фильтре выбрать наличие крепления")
-    public ProductListPage setFilterBindingProduct(String value) {
-        filterBinding.$(byText(value)).click();
+    public ProductListPage selectInFilterBindingAProduct(String value) {
+        FILTER_BINDING.$(byText(value)).click();
         return this;
     }
 
     @Step("В фильтре выбрать уровень мастерства")
-    public ProductListPage setFilterProfessionalism(String value) {
-        filterProfessionalism.$(byText(value)).click();
+    public ProductListPage selectInFilterAProfessionalism(String value) {
+        FILTER_PROFESSIONALISM.$(byText(value)).click();
         return this;
     }
 
     @Step("В фильтре выбрать ростовку(см)")
-    public ProductListPage setFilterHeight(String value) {
-        filterHeight.$(byText(value)).click();
+    public ProductListPage selectInFilterAHeight(String value) {
+        FILTER_HEIGHT.$(byText(value)).click();
         return this;
     }
 
     @Step("Навести курсор мыши на карточку товара")
-    public ProductListPage setProductItem() {
-        productList.hover();
+    public ProductListPage hoverYourMouseOverTheProductCard() {
+        PRODUCT_LIST.hover();
         return this;
     }
 
     @Step("Кликнуть на кнопку \"В корзину\"")
-    public ProductListPage setButtonAppear() {
-        buttonAppear.click();
+    public ProductListPage clickOnTheButtonThatAppears() {
+        BUTTON_APPEAR.click();
         return this;
     }
 
     @Step("В попапп форме кликнуть на кнопку \"В корзину\"")
-    public ProductListPage setPopupForm() {
-        popupForm.$(byText("В корзину")).click();
+    public ProductListPage clickOnTheButtonInThePopupForm() {
+        POPUP_FORM.$(byText("В корзину")).click();
         return this;
     }
 
     @Step("В появившемся модальном окне кликнуть \"В корзину\"")
     public BasketPage confirmBasketModal() {
-        modalWindow.$(byText("В корзину")).click();
+        MODAL_WINDOW.$(byText("В корзину")).click();
         return new BasketPage();
     }
 
     @Step("Навести курсор мыши на третью карточку товара")
-    public ProductListPage setProductListItemLinkThird() { // два, но один элемент коллекции, а другой селенид элемент
-        productListCollection.get(2).hover();
+    public ProductListPage hoverYourMouseOverTheThirdCard() {
+        PRODUCT_LIST_COLLECTION.get(2).hover();
         return this;
     }
 
     @Step("Проверить, что на странице отображаются товары в соответствии с фильтром")
     public ProductListPage checkBrandSneakers(String brand) {
-        adidasBrand.shouldHave(text(brand));
+        FILTER_BRAND.shouldHave(text(brand));
         return this;
     }
 
     @Step("Добавить товар в избранное")
-    public ProductListPage setCatalogFavorite() {
-        catalogFavorite.get(2).shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
+    public ProductListPage addProductToFavorites() {
+        CATALOG_FAVORITE.get(2).shouldBe(Condition.visible, Duration.ofSeconds(10)).click();
         return this;
     }
 
     @Step("Кликнуть на нужную карточку товара")
-    public ProductDetailPage setProductListItem(String value) {
-        productList.find(byText(value)).click();
+    public ProductDetailPage selectProductListItem(String value) {
+        PRODUCT_LIST.find(byText(value)).click();
         //productName.shouldHave(text(value));
         return new ProductDetailPage();
     }
-
-
 }
