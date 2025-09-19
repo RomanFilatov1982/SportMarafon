@@ -19,9 +19,12 @@ public class BasketPage extends LayoutPage<BasketPage> {
 
     @Step("Проверить, что товар отображается в корзине")
     public BasketPage checkBasketTable(String value) {
-        BASKET_TABLE.shouldHave(text(value));
+        BASKET_TABLE
+                .shouldBe(Condition.visible, Duration.ofSeconds(10))
+                .shouldHave(text(value));
         return this;
     }
+
 
     @Step("Кликнуть на кнопку(X) удалить")
     public BasketPage deleteProductFromBasket() {

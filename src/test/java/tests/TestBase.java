@@ -22,7 +22,7 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.remote = System.getProperty("remoteUrl");
 
-    /*    Configuration.pageLoadTimeout = 60000;
+      /*  Configuration.pageLoadTimeout = 60000;
         Configuration.baseUrl = "https://sport-marafon.ru/";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";

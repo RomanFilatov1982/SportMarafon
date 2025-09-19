@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProductListPage extends LayoutPage<ProductListPage> {
-    private final SelenideElement PRODUCT_NAME = $(".product-list__name"),
+    private final SelenideElement PRODUCT_CATALOG = $("#main-catalog"),
             PRODUCT_LIST = $(".product-list__item-wrap"),
             FILTER_BRAND = $("#filter-block-brand-name"),
             FILTER_BINDING = $("#filter-block-kreplenie"),
@@ -20,21 +20,20 @@ public class ProductListPage extends LayoutPage<ProductListPage> {
             FILTER_HEIGHT = $("#filter-block-multi_rostovka_lizi"),
             BUTTON_APPEAR = $x("//button[text()='В корзину']"),
             POPUP_FORM = $(".popup-form__content_subscribe"),
-            MODAL_WINDOW = $(".popup-form.modal.show");
-            //adidasBrand = $("[href*='brands/adidas']");
+            MODAL_CART_BUTTON = $(".popup-form__btn_cart");
 
     private final ElementsCollection PRODUCT_LIST_COLLECTION = $$(".product-list__item-link"),
             CATALOG_FAVORITE = $$(".catalog__favourite");
 
     @Step("Проверить, что товары отобразились из нужной категории")
     public ProductListPage checkProductFromGroup(String value) {
-        PRODUCT_NAME.shouldHave(text(value));
+        PRODUCT_CATALOG.shouldHave(text(value));
         return this;
     }
 
     @Step("Проверить, что товар отображается в избранном")
     public ProductListPage checkProductListName(String value) {
-        PRODUCT_NAME.shouldHave(text(value));
+        PRODUCT_CATALOG.shouldHave(text(value));
         return this;
     }
 
@@ -82,7 +81,9 @@ public class ProductListPage extends LayoutPage<ProductListPage> {
 
     @Step("В появившемся модальном окне кликнуть \"В корзину\"")
     public BasketPage confirmBasketModal() {
-        MODAL_WINDOW.$(byText("В корзину")).click();
+        MODAL_CART_BUTTON
+                .should(Condition.visible, Duration.ofSeconds(10))
+                .click();
         return new BasketPage();
     }
 

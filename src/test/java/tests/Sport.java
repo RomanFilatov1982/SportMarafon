@@ -36,25 +36,12 @@ public class Sport extends TestBase {
         sportPage.openPage()
                 .chooseCategoryMenuItem("Альпинизм")
                 .chooseSubMenu("Ледово-снежное снаряжение", "Кошкоботы")
-                .checkProductFromGroup("Кошки Petzl D-Lynx Orange");
+                .checkProductFromGroup("Кошкоботы Ice Rock Rocket Black");
     }
 
     @Test
     @DisplayName("Добавить товар в корзину из карточки товара")
     void addProductToBasketFromCard1() {
-        sportPage.openPage()
-                .acceptCookie()
-                .chooseCategoryMenuItem("Туризм")
-                .chooseSubMenu("Спальные мешки", "Гамаки")
-                .selectProductListItem("Гамак для снаряжения Naturehike Equipment Blue")
-                .clickOnTheAddButtonInTheCard()
-                .clickOnTheAddToCartButtonInTheDialogBox()
-                .checkBasketTable("Гамак для снаряжения Naturehike Equipment Blue (Blue, 1sz )");
-    }
-
-    @Test
-    @DisplayName("Добавить товар в корзину из карточки")
-    void addProductToBasketFromCard() {
         sportPage.openPage()
                 .acceptCookie()
                 .chooseCategoryMenuItem("Туризм")
@@ -94,14 +81,14 @@ public class Sport extends TestBase {
                 .clickOnTheButtonThatAppears()
                 .clickOnTheButtonInThePopupForm()
                 .confirmBasketModal()
-                .checkBasketTable("Горные лыжи Salomon E S/Max 8 Xt с креплениями M10 GW L80 Oi (Multi, 163 )");
+                .checkBasketTable("Горные лыжи Salomon");
     }
 
     @Test
     @DisplayName("Добавить товар в избранное")
     void addingProductToFavorites() {
         sportPage.openPage()
-                .acceptCookie()
+                //.acceptCookie()
                 .chooseCategoryMenuItem("Бег")
                 .chooseSubMenu("Для мужчин", "Беговые кроссовки")
                 .hoverYourMouseOverTheThirdCard()

@@ -2,8 +2,13 @@ package components;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.ProductListPage;
+import utils.ElementNotFoundException;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byTagName;
 import static com.codeborne.selenide.Selectors.byText;
 
@@ -15,40 +20,30 @@ public class MenuItem {
         this.root = root;
     }
 
+    @Step("Выбрать в секции категорию товара")
     public ProductListPage chooseSubMenu(String sectionHeader, String subItemText) {
-        // ищем в root элемент по тексту (название секции верхнего уровня, например "Одежда")
+
         SelenideElement menuHeader = root.find(byText(sectionHeader));
-        // берём родителя родителя этого элемента (обычно это <ul> со списком пунктов)
         SelenideElement list = menuHeader.parent().parent();
-        // собираем все <li> в списке
         ElementsCollection listItemCollection = list.findAll(byTagName("li"));
-        // флаг — находимся ли мы внутри нужной секции
         boolean inSection = false;
         for (SelenideElement item : listItemCollection) {
-            // достаём <a> (ссылку) из элемента меню
-            SelenideElement link = item.find(byTagName("a"));
-            // проверяем, является ли элемент "заголовком секции"
             if (item.getAttribute("class").contains("shop-dd-menu__head")) {
-                // если это заголовок секции, и текст совпадает с value
-                if (link.getText().equalsIgnoreCase(sectionHeader)) {
-                    // включаем флаг: теперь мы в этой секции
+                if (item.getText().equalsIgnoreCase(sectionHeader)) {
                     inSection = true;
                 } else {
-                    // иначе — вышли из секции
                     inSection = false;
                 }
             }
-            // если ещё не вошли в секцию — пропускаем
             if (!inSection) {
                 continue;
             }
-            // если текст ссылки совпадает с section — кликаем
-            if (link.getText().equalsIgnoreCase(subItemText)) {
-                link.click();
+            if (item.getText().equalsIgnoreCase(subItemText)) {
+                item.click();
                 return new ProductListPage();
             }
         }
-        return null; // todo заменить на исключение
+        throw new ElementNotFoundException(String.format("Не нашли пункт меню: %s > %s", sectionHeader, subItemText));
     }
 }
 
